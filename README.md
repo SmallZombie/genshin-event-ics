@@ -10,4 +10,4 @@ Automatically updated daily by Github Action.
 Simply subscribe to `https://smallzombie.github.io/genshin-event-ics/release.ics`.\
 Json version data: `https://smallzombie.github.io/genshin-event-ics/release.json`, see definition in [ReleaseJsonType.ts](src/type/ReleaseJsonType.ts).
 
-For software configuration references: [Wiki](https://github.com/SmallZombie/genshin-event-ics/wiki).
+For software configuration references: [Wiki](https://github.com/SmallZombie/genshin-birthday-ics/wiki).
