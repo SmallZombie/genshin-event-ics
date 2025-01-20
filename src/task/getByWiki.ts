@@ -1,5 +1,5 @@
 import { join } from '@std/path';
-import { Vcalendar, VcalendarBuilder, dateToDateTime } from '../BaseUtil.ts';
+import { Vcalendar, VcalendarBuilder } from '../BaseUtil.ts';
 import { getAllEvents } from '../WikiController.ts';
 import { ReleaseJsonType } from '../type/ReleaseJsonType.ts';
 import { UID_PREFIX } from '../Const.ts';
@@ -16,6 +16,7 @@ async function main() {
         .setRefreshInterval('P1D')
         .setCalScale('GREGORIAN')
         .setTzid('Asia/Shanghai')
+        .setTzoffset('+0800')
         .build();
 
     const jsonItems: ReleaseJsonType = [];
@@ -24,9 +25,9 @@ async function main() {
 
         vcalendar.items.push({
             uid: UID_PREFIX + item.id,
-            dtstamp: dateToDateTime(new Date()),
-            dtstart: dateToDateTime(item.start),
-            dtend: dateToDateTime(item.end),
+            dtstamp: vcalendar.dateToDateTime(new Date()),
+            dtstart: vcalendar.dateToDateTime(item.start),
+            dtend: vcalendar.dateToDateTime(item.end),
             summary: item.name,
             description: item.description
         });

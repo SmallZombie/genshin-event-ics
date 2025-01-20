@@ -4,7 +4,6 @@ import { Vcalendar } from '../BaseUtil.ts';
 import { getAllEvents } from '../WikiController.ts';
 import type { ReleaseJsonType } from '../type/ReleaseJsonType.ts';
 import { UID_PREFIX } from '../Const.ts';
-import { dateToDateTime } from '../BaseUtil.ts';
 
 
 async function update() {
@@ -36,9 +35,9 @@ async function update() {
     for (const i of newItems) {
         ics.items.push({
             uid: UID_PREFIX + i.id,
-            dtstamp: dateToDateTime(new Date()),
-            dtstart: dateToDateTime(i.start),
-            dtend: dateToDateTime(i.end),
+            dtstamp: ics.dateToDateTime(new Date()),
+            dtstart: ics.dateToDateTime(i.start),
+            dtend: ics.dateToDateTime(i.end),
             summary: i.name,
             description: i.description
         });
